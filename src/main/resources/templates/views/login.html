@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragment/login/th-fragment-login-head :: th-fragment-login-head" />
+  <body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
+                                    </div>
+                                    <form class="user" th:id="frmLogin" th:name="frmLogin" th:method="post" th:action="@{/login/process}" autocomplete="off">
+                                        <div class="form-group">
+                                            <input class="form-control form-control-user" th:type="text" th:id="memId" th:name="memId" aria-describedby="memId" placeholder="아이디" autocomplete="username" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-user" th:type="password" th:id="memPwd" th:name="memPwd" placeholder="비밀번호" autocomplete="current-password" />
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input class="custom-control-input" th:type="checkbox" th:id="rememberId">
+                                                <label class="custom-control-label" th:for="rememberId">아이디 기억하기</label>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-user btn-block btnLogin">Login</button>
+                                    </form>
+                                </div>
+                                <div class="p-5 loginMessage" style="display: none;">
+                                    <div class="text-center"></div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="text-center"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+  <!-- Bootstrap core JS-->
+  <th:block th:include="fragment/login/th-fragment-login-js :: th-fragment-login-js" />
+  <script>
+      $(document).ready(function () {
+
+          var memId = cookie.getCookie("rememberMe") + "";
+          if (memId != "") {
+              $("#memId").val(memId);
+              $("#rememberId").prop("checked", true);
+
+          }
+
+          $(".btnLogin").on("click", function() {
+              login.process();
+              return false;
+          });
+
+          $("#memId, #memPwd").on("focus", function() {
+             $(".loginMessage").hide();
+          });
+      });
+  </script>
+</html>

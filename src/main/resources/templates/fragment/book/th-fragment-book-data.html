@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="th-fragment-book-data">
+    <div>
+        <section class="page-section bg-primary text-white mb-0" id="bookData">
+            <div class="container">
+                <!-- Book Data Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Book Data</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Book Data Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ml-auto"><p class="lead">Books 영역의 데이터를 노출하는데 사용되는 데이터입니다.</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">IntelliJ IDEA의 DataGrip import 기능을 사용하여 데이터를 등록해주시기 바랍니다.</p>
+                    </div>
+                </div>
+                <!-- Book Data Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" th:href="@{/document/book.csv}">
+                        <i class="fas fa-download mr-2"></i>
+                        Book Data Download!
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</th:block>
+
+</html>

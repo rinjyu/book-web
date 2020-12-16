@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: book-web
+  cloud:
+    config:
+      uri: http://book-cloudconfig:9000
+  profiles:
+    active: local
+
+application:
+  project-name: book.web
+
+logging:
+  path:
+    root: D:/workspace/book/logs
+
+---
+spring:
+  profiles: local
+  cloud:
+    config:
+      uri: http://127.0.0.1:9000
+
+logging:
+  path:
+    root: D:/workspace/book/logs
+
+---
+spring:
+  profiles: dev

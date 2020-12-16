@@ -1,0 +1,20 @@
+server:
+  port: ${port.book-web}
+
+spring:
+  mvc:
+    view:
+      suffix: .html
+  thymeleaf:
+    cache: false
+  banner:
+    location: classpath:banner/banner.txt
+
+
+---
+spring:
+  profiles: local
+
+---
+spring:
+  profiles: dev

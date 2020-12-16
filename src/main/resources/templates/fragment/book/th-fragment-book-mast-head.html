@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
+
+<th:block th:fragment="th-fragment-book-mast-head">
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <img class="masthead-avatar mb-5" th:src="@{/image/avataaars.svg}" alt=""/>
+            <h1 class="masthead-heading text-uppercase mb-0">Book Board</h1>
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <p class="masthead-subheading font-weight-light mb-0" sec:authorize="isAuthenticated()">
+                <span sec:authentication="principal.memNm"></span>님,<br/>Book Board에 오신 것을 환영합니다!
+            </p>
+        </div>
+    </header>
+</th:block>>
+
+</html>

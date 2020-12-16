@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="th-fragment-book-storage">
+    <section class="page-section" id="bookStorage">
+        <div class="container">
+            <!-- Book Storage Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Book Storage</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Book Storage Section Form-->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form th:id="frmBookStorage" th:name="frmBookStorage" novalidate="novalidate">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Book Name</label>
+                                <input class="form-control" th:id="bookNm" th:name="bookNm" th:type="text"
+                                       placeholder="Book Name" required="required"
+                                       data-validation-required-message="Book Name 항목을 입력해주세요."/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Book Author</label>
+                                <input class="form-control" th:id="bookAuthor" th:name="bookAuthor" th:type="text"
+                                       placeholder="Book Author" required="required"
+                                       data-validation-required-message="Book Author 항목을 입력해주세요."/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Book Publisher</label>
+                                <input class="form-control" th:id="bookPublisher" th:name="bookPublisher" th:type="text"
+                                       placeholder="Book Publisher" required="required"
+                                       data-validation-required-message="Book Publisher 항목을 입력해주세요."/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Book Price</label>
+                                <input class="form-control" th:id="bookPrice" th:name="bookPrice" th:type="text"
+                                       placeholder="Book Price" required="required"
+                                       data-validation-required-message="Book Price 항목을 입력해주세요."/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Book Description</label>
+                                <textarea class="form-control" th:id="bookDesc" th:name="bookDesc" rows="5"
+                                          placeholder="Book Description" required="required"
+                                          data-validation-required-message="Book Description 항목을 입력해주세요."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div id="success"></div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-xl" id="btnBookStorage">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+
+</html>

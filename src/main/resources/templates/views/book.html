@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragment/book/th-fragment-book-head :: th-fragment-book-head" />
+  <body id="page-top">
+    <!-- Navigation-->
+    <th:block th:include="fragment/book/th-fragment-book-navigation :: th-fragment-book-navigation"/>
+    <!-- Masthead-->
+    <th:block th:include="fragment/book/th-fragment-book-mast-head :: th-fragment-book-mast-head"/>
+    <!-- Books Section-->
+    <th:block th:include="fragment/book/th-fragment-books :: th-fragment-books"/>
+    <!-- Book Data Section-->
+    <th:block th:include="fragment/book/th-fragment-book-data :: th-fragment-book-data"/>
+    <!-- Book Storage Section-->
+    <th:block th:include="fragment/book/th-fragment-book-storage :: th-fragment-book-storage"/>
+    <!-- Footer-->
+    <th:block th:include="fragment/book/th-fragment-book-footer :: th-fragment-book-footer"/>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+    <!-- books Modals-->
+    <th:block th:include="fragment/book/th-fragment-book-modal :: th-fragment-book-modal"/>
+    <!-- Bootstrap core JS-->
+    <th:block th:include="fragment/book/th-fragment-book-js :: th-fragment-book-js"/>
+
+    <script>
+      $(document).ready(function () {
+        $(".btnLogin").on("click", function () {
+          location.href = "/login";
+          return false;
+        });
+
+        $(".btnLogout").on("click", function () {
+          if (confirm("로그아웃 하시겠습니까?")) {
+            location.href = "/logout";
+          }
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="th-fragment-books">
+    <section class="page-section books" id="books">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Books</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="row justify-content-center">
+                <!--/*@thymesVar id="books" type="java.util.List<com.app.book.web.domain.Book>"*/-->
+                <div class="col-md-6 col-lg-4 book-item" th:each="item, status : ${books}">
+                    <div class="books-item mx-auto" data-toggle="modal" th:data-target="${'#booksModal'+item.bookNo}">
+                        <div class="books-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="books-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid"
+                             th:src="${(item.bookImgPath != null && !#strings.isEmpty(item.bookImgPath)) ? item.bookImgPath : '/image/books/safe.png'}"
+                             alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+
+</html>

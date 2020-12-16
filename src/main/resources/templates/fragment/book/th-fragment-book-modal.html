@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div block th:fragment="th-fragment-book-modal">
+    <!--/*@thymesVar id="books" type="java.util.List<com.app.book.web.domain.Book>"*/-->
+    <div class="books-modal modal fade" th:each="item, status : ${books}" th:id="${'booksModal'+item.bookNo}" tabindex="-1"
+         role="dialog" th:attr="aria-labelledby='booksModal' + ${item.bookNo}+'Label'" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="books-modal-title text-secondary text-uppercase mb-0"
+                                    th:id="${'booksModal'+item.bookNo+'Label'}" th:text="${item.bookNm}"></h2>
+                                <h3 class="books-modal-title text-secondary text-uppercase mb-0"
+                                    th:text="${item.bookDesc}"></h3>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <img class="img-fluid rounded mb-5"
+                                     th:src="${(item.bookImgPath != null && !#strings.isEmpty(item.bookImgPath)) ? item.bookImgPath : '/image/books/safe.png'}"
+                                     alt=""/>
+                                <p class="mb-3" th:text="${item.bookPublisher}"></p>
+                                <p class="mb-3" th:text="${item.bookAuthor}"></p>
+                                <p class="mb-3" th:text="${#numbers.formatInteger(item.bookPrice, 3,'COMMA') + '원'}"></p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
